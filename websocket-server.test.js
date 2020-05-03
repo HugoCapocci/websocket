@@ -1,5 +1,7 @@
 const WebSocket = require('ws');
 
+process.env.WS_PORT = 3001;
+
 describe('Websocket Tests', () => {
     const fakeURL = 'ws://localhost:3001';
     let webSocketServer;
