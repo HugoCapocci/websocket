@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="./style.css" type="text/css" rel="stylesheet"/>
+        <title>websocket chat</title>
+    </head>
+    <body>
+        <h1>websocket chat</h1>
+        <div class="chat">
+            <div class="chat-header">
+                Votre nom : <input type="text" name="chat-name" />
+                <button class="chat-login" onclick="connectUser()">Valider</button>
+            </div>
+            <div class="chat-content"></div>
+            <div class="chat-form">
+                <textarea value="" rows="5" cols="45" name="chat-message" disabled="disabled"></textarea>
+                <button class="chat-send" disabled="disabled" onclick="sendMessage()">ok</button>
+            </div>
+        </div>
+        <script>
+            let user;
+            let mySocket
+            function connect() {
+                // TO IMPLEMENT
+            }
+
+            function connectUser() {
+                user = document.getElementsByName('chat-name')[0].value;
+                if (user) {
+                    connect();
+                    document.getElementsByName('chat-message')[0].disabled = false;
+                    document.getElementsByClassName('chat-send')[0].disabled = false;
+                }
+            }
+
+            function sendMessage() {
+                const message = document.getElementsByName('chat-message')[0].value;
+                // TO IMPLEMENT
+                document.getElementsByName('chat-message')[0].value = '';
+            }
+        </script>
+    </body>
+</html>
