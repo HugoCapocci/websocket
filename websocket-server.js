@@ -16,11 +16,3 @@ webSocketServer.on('connection', webSocket => {
 webSocketServer.on('error', (error) => {
     console.log('error occured ', error);
 });
- 
-webSocketServer.on('error', (error) => {
-    console.log('error occured ', error);
-});
-
-webSocketServer.on('close', function close() {
-    console.log('connection closed');
-});
