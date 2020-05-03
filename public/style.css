@@ -1,0 +1,34 @@
+.chat{
+    width:400px;
+    padding:10px;
+    background:#ccc;
+    margin:20px auto;
+    border-radius: 10px;
+}
+.chat-content{
+    min-height:400px;
+    max-height:400px;
+    overflow:hidden;
+    overflow-y:scroll;
+    background:#fff;
+    border: black thin 1px;
+    margin-bottom:10px;     
+}
+.chat-header {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+.chat-form {
+    display: flex;
+}
+button {
+    color: white;
+    background:  #6881ce;
+    border: 0px;
+    border-radius: 2px;
+}
+button:active{
+    background:  #5f85f7;
+}
+
