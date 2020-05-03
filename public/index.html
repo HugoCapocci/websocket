@@ -48,7 +48,10 @@
 
             function sendMessage() {
                 const message = document.getElementsByName('chat-message')[0].value;
-                // TO IMPLEMENT
+                mySocket.send(JSON.stringify({
+                    user,
+                    message
+                }));
                 document.getElementsByName('chat-message')[0].value = '';
             }
         </script>

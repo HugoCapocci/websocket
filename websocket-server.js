@@ -4,7 +4,10 @@ const webSocketServer = new WebSocket.Server({ port: process.env.WS_PORT });
 
 webSocketServer.on('connection', webSocket => {
     console.log('connection established');
-
+    webSocket.onmessage = (messageEvent) => {
+        const message = messageEvent.data;
+        console.log('message received ', message);
+    };
     webSocket.on('close', () => {
         console.log('connection closed by client');
     });
@@ -12,12 +15,4 @@ webSocketServer.on('connection', webSocket => {
  
 webSocketServer.on('error', (error) => {
     console.log('error occured ', error);
-});
- 
-webSocketServer.on('error', (error) => {
-    console.log('error occured ', error);
-});
-
-webSocketServer.on('close', function close() {
-    console.log('connection closed');
 });
