@@ -35,6 +35,19 @@
                 mySocket.onclose = () => {
                     console.info('WebSocket connection closed'); 
                 };
+
+                mySocket.onmessage = (messageEvent) => {
+                    console.info('Message event received from server: ', messageEvent.data);
+                    let data;
+                    try {
+                        data = JSON.parse(messageEvent.data);
+                    } catch (error) {
+                        console.error(error.message);
+                    }
+                    const newDiv = document.createElement('div');
+                    newDiv.append(`[${data.user}] ${data.message}`);
+                    document.getElementsByClassName('chat-content')[0].appendChild(newDiv);
+                }
             }
 
             function connectUser() {

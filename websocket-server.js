@@ -7,7 +7,14 @@ webSocketServer.on('connection', webSocket => {
     webSocket.onmessage = (messageEvent) => {
         const message = messageEvent.data;
         console.log('message received ', message);
+        webSocket.send(message);
     };
+
+    webSocket.send(JSON.stringify({
+        user: 'server',
+        message: 'Welcome!'
+    }));
+
     webSocket.on('close', () => {
         console.log('connection closed by client');
     });
