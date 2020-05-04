@@ -4,11 +4,10 @@ const webSocketServer = new WebSocket.Server({ port: process.env.WS_PORT });
 
 webSocketServer.on('connection', webSocket => {
     console.log('connection established');
-    webSocket.onmessage = (messageEvent) => {
-        const message = messageEvent.data;
-        console.log('message received ', message);
+
+    webSocket.on('message', (message) => {
         webSocket.send(message);
-    };
+    });
 
     webSocket.send(JSON.stringify({
         user: 'server',

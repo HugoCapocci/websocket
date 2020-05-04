@@ -20,19 +20,25 @@
         </div>
         <script>
             let user;
-            let mySocket
+            let mySocket;
+            let isConnected = false;
+
             function connect() {
+                if (isConnected) return;
                 mySocket = new WebSocket('ws://localhost:3001');
 
                 mySocket.onopen = (event) => {
+                    isConnected = true;
                     console.info('WebSocket connection opened ', event);
                 };
 
                 mySocket.onerror = (error) => {
+                    isConnected = false;
                     console.error('WebSocket error occurs:', error);
                 };
 
                 mySocket.onclose = () => {
+                    isConnected = false;
                     console.info('WebSocket connection closed'); 
                 };
 
