@@ -7,8 +7,12 @@ webSocketServer.on('connection', webSocket => {
 
     webSocket.on('message', (message) => {
         webSocket.send(message);
+        webSocketServer.clients.forEach((client) => {
+            if (client !== webSocket && client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
     });
-
     webSocket.send(JSON.stringify({
         user: 'server',
         message: 'Welcome!'
